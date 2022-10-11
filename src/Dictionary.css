@@ -1,0 +1,9 @@
+.card-main-dictionary {
+  background: var(--background-gradient);
+  display: block;
+  margin: 0 auto;
+  box-shadow: var(--box-shadow);
+  transition: 0.3s;
+  border-radius: 10px;
+  height: max-content !important;
+}

@@ -5,7 +5,3 @@ body {
   cursor: pointer !important;
   opacity: 0.8 !important;
 }
-.card-main {
-  background: var(--background-gradient);
-  height: 200px;
-}
