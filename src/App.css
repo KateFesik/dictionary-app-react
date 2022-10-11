@@ -9,13 +9,3 @@ body {
   background: var(--background-gradient);
   height: 200px;
 }
-.App-header {
-  margin-top: 20px;
-  max-height: 160px;
-}
-.Header-img {
-  max-height: 160px;
-  display: block;
-  margin: 0 auto;
-  opacity: 0.9;
-}
