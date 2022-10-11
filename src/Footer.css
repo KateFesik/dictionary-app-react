@@ -1,0 +1,18 @@
+.sign {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-style: italic;
+  opacity: 0.8;
+}
+.sign a {
+  font-style: italic;
+  color: var(--text-color) !important;
+  text-decoration: none;
+
+  opacity: 1;
+}
+.sign a:hover {
+  color: var(--color-secondary) !important;
+  opacity: 0.8;
+}

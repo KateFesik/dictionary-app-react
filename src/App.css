@@ -1,3 +1,14 @@
+body {
+  background: var(--background) !important;
+  font-family: var(--default-font-family) !important;
+  color: var(--text-color) !important;
+  cursor: pointer !important;
+  opacity: 0.8 !important;
+}
+.card-main {
+  background: var(--background-gradient);
+  height: 200px;
+}
 .App-header {
   margin-top: 20px;
   max-height: 160px;
@@ -6,5 +17,5 @@
   max-height: 160px;
   display: block;
   margin: 0 auto;
-  opacity: 0.7;
+  opacity: 0.9;
 }
