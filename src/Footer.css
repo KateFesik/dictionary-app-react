@@ -3,11 +3,12 @@
   text-align: center;
   font-size: 16px;
   font-style: italic;
+  color: var(--color-secondary) !important;
   opacity: 0.8;
 }
 .sign a {
   font-style: italic;
-  color: var(--text-color) !important;
+  color: var(--color-secondary) !important;
   text-decoration: none;
 
   opacity: 1;

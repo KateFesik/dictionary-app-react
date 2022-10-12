@@ -1,21 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Dictionary.css";
 import axios from "axios";
+import Results from "./Results";
 
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
+  let [resultsState, setResultsState] = useState({ ready: false });
+
+  useEffect(() => {
+    setResultsState((existingValues) => ({
+      ...existingValues,
+      ready: false,
+    }));
+  }, [keyword]);
 
   function search(event) {
     event.preventDefault();
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en/${keyword}`;
-    axios.get(apiUrl).then(handleResponse);
+    let apiRes = null;
+    (async () => {
+      try {
+        apiRes = await axios.get(apiUrl).then(handleResponse);
+      } catch (err) {
+        apiRes = err.response;
+      } finally {
+        console.log(apiRes);
+      }
+    })();
   }
+
   function handleKeyWordChange(event) {
     event.preventDefault();
     setKeyword(event.target.value);
   }
   function handleResponse(response) {
-    console.log(response.data[0]);
+    if ((response) => response.text()) {
+      setResultsState({
+        ready: true,
+        results: response.data[0],
+      });
+      console.log(response.data[0]);
+    }
   }
 
   return (
@@ -29,6 +54,12 @@ export default function Dictionary() {
           placeholder="Search for a word"
           onChange={handleKeyWordChange}
         />
+
+        {resultsState.ready ? (
+          <Results results={resultsState.results} />
+        ) : (
+          console.log("ready is false")
+        )}
       </form>
     </div>
   );
