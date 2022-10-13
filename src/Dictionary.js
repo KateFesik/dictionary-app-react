@@ -39,7 +39,6 @@ export default function Dictionary() {
         ready: true,
         results: response.data[0],
       });
-      console.log(response.data[0]);
     }
   }
 
