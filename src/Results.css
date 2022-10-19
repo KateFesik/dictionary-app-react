@@ -1,3 +1,31 @@
+.card-section {
+  background: var(--color-primary);
+  box-shadow: var(--box-shadow);
+  transition: 0.3s;
+  border-radius: 10px;
+  opacity: 0.75;
+}
+.Definition {
+  font-size: 16px;
+}
+.Example {
+  font-style: italic;
+  font-size: 14px;
+  opacity: 0.9;
+}
 .Synonyms {
   border: var(--border-primary) !important;
+}
+.Phonetc {
+  color: var(--color-secondary);
+}
+.Icon-Phonetc:hover {
+  opacity: 0.8;
+}
+.Word {
+  font-size: 35px;
+}
+.PartOfSpeech {
+  font-size: 26px;
+  line-height: 1.5;
 }

@@ -43,23 +43,26 @@ export default function Dictionary() {
   }
 
   return (
-    <div className="col-8 card card-main-dictionary mt-5 mb-5">
-      <p className="m-4">What word do you want to look up?</p>
-      <form onSubmit={search}>
-        <input
-          className="input-keyword"
-          type="search"
-          autoFocus="on"
-          placeholder="Search for a word"
-          onChange={handleKeyWordChange}
-        />
+    <div className="col-8 card-main mt-5 mb-5">
+      <div className="card-section mb-4 pt-4 ps-3">
+        <p className="">What word do you want to look up?</p>
+        <form onSubmit={search}>
+          <input
+            className="input-keyword"
+            type="search"
+            autoFocus="on"
+            placeholder="Search for a word"
+            onChange={handleKeyWordChange}
+          />
+        </form>
+        <div className="hint pb-2">suggested words: cat, hat, sun, yoga...</div>
+      </div>
 
-        {resultsState.ready ? (
-          <Results results={resultsState.results} />
-        ) : (
-          console.log("ready is false")
-        )}
-      </form>
+      {resultsState.ready ? (
+        <Results results={resultsState.results} />
+      ) : (
+        console.log("ready is false")
+      )}
     </div>
   );
 }

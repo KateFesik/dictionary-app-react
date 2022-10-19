@@ -5,7 +5,6 @@ export default function Synonyms(props) {
   if (props.synonyms.length !== 0) {
     return (
       <div>
-        <strong>synonyms: </strong>
         <div className="Synonyms row m-3">
           {props.synonyms.map(function (synonym, index) {
             return (

@@ -20,7 +20,12 @@ export default function Phonetic(props) {
   if (country === "us.mp3") {
     return (
       <div className="Phonetc">
-        <AiFillAudio onClick={playPhoneticAudio} /> {props.phonetic.text}
+        <AiFillAudio
+          onClick={playPhoneticAudio}
+          size="30px"
+          className="Icon-Phonetc"
+        />{" "}
+        {props.phonetic.text}
       </div>
     );
   } else {
