@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./Dictionary.css";
 import axios from "axios";
 import Results from "./Results";
+import Photos from "./Photos";
 
 export default function Dictionary() {
   let [keyword, setKeyword] = useState("");
   let [resultsState, setResultsState] = useState({ ready: false });
+  let [photos, setPhotos] = useState(null);
 
   useEffect(() => {
     setResultsState((existingValues) => ({
@@ -20,20 +22,35 @@ export default function Dictionary() {
     let apiRes = null;
     (async () => {
       try {
-        apiRes = await axios.get(apiUrl).then(handleResponse);
+        apiRes = await axios.get(apiUrl).then(handleDictionaryResponse);
       } catch (err) {
         apiRes = err.response;
       } finally {
         console.log(apiRes);
       }
     })();
+
+    let pexelsApiKey =
+      "563492ad6f91700001000001da6df06090d042b3859ef907c48b46c8";
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}`;
+
+    axios
+      .get(pexelsApiUrl, {
+        headers: { Authorization: `Bearer ${pexelsApiKey}` },
+      })
+      .then(handlePexelsResponse);
   }
 
   function handleKeyWordChange(event) {
     event.preventDefault();
     setKeyword(event.target.value);
   }
-  function handleResponse(response) {
+  function handlePexelsResponse(response) {
+    if ((response) => response.text()) {
+      setPhotos(response.data.photos);
+    }
+  }
+  function handleDictionaryResponse(response) {
     if ((response) => response.text()) {
       setResultsState({
         ready: true,
@@ -63,6 +80,7 @@ export default function Dictionary() {
       ) : (
         console.log("ready is false")
       )}
+      {photos ? <Photos photos={photos} /> : null}
     </div>
   );
 }
