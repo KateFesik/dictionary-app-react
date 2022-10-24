@@ -76,11 +76,11 @@ export default function Dictionary() {
       </div>
 
       {resultsState.ready ? (
-        <Results results={resultsState.results} />
+        <Results results={resultsState.results} photos={photos} />
       ) : (
         console.log("ready is false")
       )}
-      {photos ? <Photos photos={photos} /> : null}
+      {photos && resultsState.ready ? <Photos photos={photos} /> : null}
     </div>
   );
 }
