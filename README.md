@@ -1,3 +1,9 @@
+# Project desc
+
+This dictionary app includes useful features for educational activities.
+This app utilizes Bootstrap and React. The source code is under Git version control system. 
+The project uses data provided by dictionaryapi.dev REST API.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
